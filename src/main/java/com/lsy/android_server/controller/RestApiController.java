@@ -68,6 +68,13 @@ public class RestApiController {
 		return "successfully saved place data..";
 	}
 
+
+	@PostMapping("delete")
+	public String deletePlace(@RequestBody Place place){
+		placeRepository.delete(place);
+		return "successfully deleted place data..";
+	}
+
 	@GetMapping("listBy/{purpose}")
 	public Map<String, List<Place>> listByPurpose(@PathVariable("purpose")String purpose){
 		Map<String, List<Place>> map = new HashMap<String, List<Place>>();
