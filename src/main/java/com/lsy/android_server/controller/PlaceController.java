@@ -16,7 +16,7 @@ public class PlaceController {
     private final PlaceRepository placeRepository;
 
     @GetMapping("list")
-    public Map<String, List<Place>> getPlaceList(){
+    public Map<String, List<Place>> getPlaceList() {
         Map<String, List<Place>> map = new HashMap<String, List<Place>>();
         map.put("places", placeRepository.findAll());
         return map;
@@ -28,10 +28,15 @@ public class PlaceController {
     }
 
 
-
     @PostMapping("insert")
-    public String insertPlace(@RequestBody Place place){
+    public String insertPlace(@RequestBody Place place) {
         placeRepository.save(place);
         return "successfully saved place data..";
     }
+
+    @PostMapping("update")
+    public String updatePlace(@RequestBody Place place) {
+        return "successfully updated place data..";
+    }
 }
+
