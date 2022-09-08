@@ -36,7 +36,15 @@ public class PlaceController {
 
     @PostMapping("update")
     public String updatePlace(@RequestBody Place place) {
+        Place place1 = placeRepository.findById(place.getId()).get();
+        place1.setPlaceName(place.getPlaceName());
+        place1.setPurpose(place.getPurpose());
+        place1.setCity(place.getCity());
+        place1.setAddress(place.getAddress());
+        place1.setDescription(place.getDescription());
+        /*placeRepository.save(place);*/
         return "successfully updated place data..";
+
     }
 }
 

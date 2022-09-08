@@ -7,12 +7,7 @@ import java.util.Map;
 import com.lsy.android_server.constant.Purpose;
 import com.lsy.android_server.model.Place;
 import com.lsy.android_server.repository.PlaceRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lsy.android_server.model.User;
 import com.lsy.android_server.repository.UserRepository;
@@ -77,6 +72,14 @@ public class RestApiController {
 
 	@PostMapping("update")
 	public String updatePlace(@RequestBody Place place){
+		Place place1 = placeRepository.findById(place.getId()).get();
+		place1.setPlaceName(place.getPlaceName());
+		place1.setPurpose(place.getPurpose());
+		place1.setCity(place.getCity());
+		place1.setAddress(place.getAddress());
+		place1.setDescription(place.getDescription());
+		placeRepository.save(place1);
+		/*placeRepository.save(place);*/
 		return "successfully updated place data..";
 	}
 
