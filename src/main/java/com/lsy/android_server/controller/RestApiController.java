@@ -7,12 +7,7 @@ import java.util.Map;
 import com.lsy.android_server.constant.Purpose;
 import com.lsy.android_server.model.Place;
 import com.lsy.android_server.repository.PlaceRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lsy.android_server.model.User;
 import com.lsy.android_server.repository.UserRepository;
@@ -23,21 +18,21 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("base/")
 @RequiredArgsConstructor
 public class RestApiController {
-	
+
 	private final UserRepository userRepository;
 	private final PlaceRepository placeRepository;
-	
+
 //	@GetMapping("home")
 //	public String home() {
 //		return "<h1>home</h1>";
 //	}
-	
+
 //	@PostMapping("insert")
 //	public String insertUser(@RequestBody User user) {
 //		userRepository.save(user);
 //		return "데이터 저장 성공";
 //	}
-	
+
 //	@GetMapping("getUser/{id}")
 //	public User getUser(@PathVariable("id") Long id) {
 //		return userRepository.findById(id).get();
@@ -47,7 +42,7 @@ public class RestApiController {
 //	public User getUser(@PathVariable("username") String username) {
 //		return userRepository.findByUsername(username);
 //	}
-	
+
 //	@GetMapping("list")
 //	public Map<String,List<User>> getList(){
 //		Map<String, List<User>> map=new HashMap<String,List<User>>();
@@ -74,6 +69,21 @@ public class RestApiController {
 		placeRepository.delete(place);
 		return "successfully deleted place data..";
 	}
+
+	@PostMapping("update")
+	public String updatePlace(@RequestBody Place place){
+		Place place1 = placeRepository.findById(place.getId()).get();
+		place1.setPlaceName(place.getPlaceName());
+		place1.setPurpose(place.getPurpose());
+		place1.setCity(place.getCity());
+		place1.setAddress(place.getAddress());
+		place1.setDescription(place.getDescription());
+		placeRepository.save(place1);
+		/*placeRepository.save(place);*/
+		return "successfully updated place data..";
+	}
+
+
 
 	@GetMapping("listBy/{purpose}")
 	public Map<String, List<Place>> listByPurpose(@PathVariable("purpose")String purpose){

@@ -1,6 +1,7 @@
 package com.lsy.android_server.controller;
 
 import com.lsy.android_server.model.Itinerary;
+import com.lsy.android_server.model.Place;
 import com.lsy.android_server.repository.ItineraryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,11 @@ public class ItineraryController {
     public String insertItinerary(@RequestBody Itinerary itinerary){
         itineraryRepository.save(itinerary);
         return "successfully saved your itinerary..";
+    }
+
+    @PostMapping("update")
+    public String updateItinerary(@RequestBody Itinerary itinerary) {
+        return "successfully updated place data..";
     }
 
 }
