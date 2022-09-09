@@ -26,6 +26,7 @@ public class Place {
 
    
 
+    
 //    private long id;
 //    private String placeName;
 //    private String season;
