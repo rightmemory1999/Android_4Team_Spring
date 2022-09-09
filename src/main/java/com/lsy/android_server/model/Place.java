@@ -24,7 +24,7 @@ public class Place {
 
     private String description;
 
-    private String hello;
+   
 
 //    private long id;
 //    private String placeName;
