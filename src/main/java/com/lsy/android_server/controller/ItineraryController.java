@@ -34,6 +34,7 @@ public class ItineraryController {
         return "successfully saved your itinerary..";
     }
 
+    //sql DB에 입력된 데이터가 수정되도록 설정
     @PostMapping("update")
     public String updateItinerary(@RequestBody Itinerary itinerary) {
         return "successfully updated place data..";

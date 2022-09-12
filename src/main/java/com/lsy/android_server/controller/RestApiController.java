@@ -63,13 +63,14 @@ public class RestApiController {
 		return "successfully saved place data..";
 	}
 
-
+	//sql DB에 입력된 데이터가 삭제되도록 설정
 	@PostMapping("delete")
 	public String deletePlace(@RequestBody Place place){
 		placeRepository.delete(place);
 		return "successfully deleted place data..";
 	}
 
+	//sql DB에 입력된 데이터가 수정되도록 설정
 	@PostMapping("update")
 	public String updatePlace(@RequestBody Place place){
 		Place place1 = placeRepository.findById(place.getId()).get();
@@ -82,7 +83,6 @@ public class RestApiController {
 		/*placeRepository.save(place);*/
 		return "successfully updated place data..";
 	}
-
 
 
 	@GetMapping("listBy/{purpose}")
