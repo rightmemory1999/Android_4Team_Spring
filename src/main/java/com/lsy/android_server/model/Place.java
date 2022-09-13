@@ -13,7 +13,7 @@ public class Place {
     @Column(name = "place_id")
     private long id;
 
-//게시물 글쓴이와 username가 같을 경우 수정,삭제 가능하도록
+//게시물 작성자(username)가 같을 경우 수정,삭제 가능하도록 설정
     private String username;
 
     private String placeName;

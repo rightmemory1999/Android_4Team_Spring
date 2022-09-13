@@ -34,6 +34,7 @@ public class PlaceController {
         return "successfully saved place data..";
     }
 
+    //(안드로이드부터 넘어온) sql DB에 입력된 데이터가 수정되도록 설정
     @PostMapping("update")
     public String updatePlace(@RequestBody Place place) {
         Place place1 = placeRepository.findById(place.getId()).get();
