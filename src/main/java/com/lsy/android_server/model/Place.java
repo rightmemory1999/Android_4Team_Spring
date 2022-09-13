@@ -13,6 +13,9 @@ public class Place {
     @Column(name = "place_id")
     private long id;
 
+//게시물 글쓴이와 username가 같을 경우 수정,삭제 가능하도록
+    private String username;
+
     private String placeName;
 
 //    @Enumerated(EnumType.STRING)
@@ -23,14 +26,4 @@ public class Place {
     private String address;
 
     private String description;
-
-   
-
-    
-//    private long id;
-//    private String placeName;
-//    private String season;
-//    private String city;
-//    private String address;
-//    private String detail;
 }
