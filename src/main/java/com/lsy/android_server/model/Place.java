@@ -27,10 +27,4 @@ public class Place {
 
     private String description;
 
-//    private long id;
-//    private String placeName;
-//    private String season;
-//    private String city;
-//    private String address;
-//    private String detail;
 }
