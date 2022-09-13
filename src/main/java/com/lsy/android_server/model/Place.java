@@ -26,5 +26,4 @@ public class Place {
     private String address;
 
     private String description;
-
 }
